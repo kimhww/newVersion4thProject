@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>MyChef</title>
+
+    <link rel="stylesheet" href="indexCss.css">
 </head>
 <body>
-<header>
+<header id = "header">
     <div class="container">
         <h1 class="logo">
-            <a href="index.html" title="MYCHEF 홈으로 이동">MYCHEF : More Abundant Food</a>
+            <a href="index" title="MYCHEF 홈으로 이동">MYCHEF : More Abundant Food</a>
         </h1>
         <!-- util-area -->
         <div class="util-area">
@@ -21,52 +23,36 @@
 
     <nav id="gnb">
         <ul class="gnb-depth1">
-            <li title="MyChef">
-                <a href="#" class="movie">MyChef</a>
-                <div class="gnb-depth2 movie-snb">
-                    <ul class="indexHome">
-                        <li><a href="" title="전체영화">전체영화</a></li>
-                        <li><a href="" title="큐레이션">큐레이션</a></li>
-                        <li><a href="" title="영화제">영화제</a></li>
-                        <li><a href="" title="무비포스트">무비포스트</a></li>
-                    </ul>
-                </div>
+            <li title="MyChef 메인 화면으로 바로가기">
+                <a href="index" class="movie">HOME</a>
             </li>
-            <li title="addRestaurants">
-                <a href="#" class="addRestaurants">addRestaurants</a>
+            <li title="장소 등록으로 바로가기">
+                <a href="#" class="addRestaurant">ADD RESTAURANT</a>
                 <div class="gnb-depth2 reserve-snb">
                     <ul>
-                        <li><a href="">빠른예매</a></li>
-                        <li><a href="">상영시간표</a></li>
-                        <li><a href="">더 부티크 프라이빗 예매</a></li>
+                        <li><a href="">맛집 등록</a></li>
+                        <li><a href="">우리의 맛집</a></li>
                     </ul>
                 </div>
             </li>
-            <li title="addRecipe">
-                <a href="#" class="addRecipe">addRecipe</a>
+            <li title="레시피 등록으로 바로가기">
+                <a href="#" class="addRecipe">ADD RECIPE</a>
                 <div class="gnb-depth2 theater-snb">
                     <ul>
-                        <li><a href="">전체극장</a></li>
-                        <li><a href="">특별관</a></li>
+                        <li><a href="">레시피 등록</a></li>
+                        <li><a href="">우리의 레시피</a></li>
                     </ul>
                 </div>
             </li>
-            <li title="support">
-                <a href="#" class="support">support</a>
-                <div class="gnb-depth2 event-snb">
-                    <ul>
-                        <li><a href="">진행중 이벤트</a></li>
-                        <li><a href="">지난 이벤트</a></li>
-                        <li><a href="">당첨자발표</a></li>
-                    </ul>
-                </div>
+            <li title="고객센터로 바로가기">
+                <a href="#" class="support">SUPPORT</a>
             </li>
         </ul>
     </nav>
 </header>
 
 <main id="main">
-
+    <div id="map"></div>
 </main>
 </body>
 </html>
