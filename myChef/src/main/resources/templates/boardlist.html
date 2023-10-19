@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>MyChef</title>
@@ -47,16 +47,51 @@
                 </div>
             </li>
             <li title="고객센터로 바로가기">
-                <a href="/board/list" class="support">SUPPORT</a>
+                <a href="#" class="support">SUPPORT</a>
             </li>
         </ul>
     </nav>
-
-
 </header>
 
-<main id="main">
-    <div id="map"></div>
-</main>
+<div class="layout">
+    <div class="form-container">
+        <form action="/board/write" method="get" enctype="multipart/form-data" class="write-button">
+            <button type="submit">문의 작성</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>글 번호</th>
+            <th>제목</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="board : ${list}">
+            <td th:text="${board.id}">1</td>
+            <td>
+                <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}" style="color : orangered"></strong>
+        </th:block>
+    </div>
+
+    <div class="form-container">
+        <form th:action="@{/board/list}" method="get">
+            <input type="text" name="searchKeyword">
+            <button type="submit">검색</button>
+        </form>
+    </div>
+
+</div>
+
+
 </body>
 </html>

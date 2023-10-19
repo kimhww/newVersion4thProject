@@ -47,16 +47,25 @@
                 </div>
             </li>
             <li title="고객센터로 바로가기">
-                <a href="/board/list" class="support">SUPPORT</a>
+                <a href="#" class="support">SUPPORT</a>
             </li>
         </ul>
     </nav>
-
-
 </header>
 
-<main id="main">
-    <div id="map"></div>
-</main>
+<div class="layout">
+    <form method="post" th:action="@{/board/update/{id}(id=${board.id})}" enctype="multipart/form-data">
+        <input name="title" type="text" th:value="${board.title}">
+        <textarea name="content" th:text="${board.content}"></textarea>
+        <input type="file" name="file">
+
+        <div class="button-container">
+            <button type="submit">수정</button>
+        </div>
+
+    </form>
+</div>
+
+
 </body>
 </html>

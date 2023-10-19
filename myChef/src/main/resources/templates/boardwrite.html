@@ -51,12 +51,20 @@
             </li>
         </ul>
     </nav>
-
-
 </header>
 
-<main id="main">
-    <div id="map"></div>
-</main>
+<div class="layout">
+    <form action="/board/writepro" method="post" enctype="multipart/form-data">
+        <input name="title" type="text" placeholder="제목">
+        <textarea name="content" placeholder="내용"></textarea>
+        <input type="file" name="file">
+        <div class="button-container">
+            <button type="submit">작성</button>
+        </div>
+
+    </form>
+</div>
+
+
 </body>
 </html>
