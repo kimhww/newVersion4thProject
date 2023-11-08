@@ -1,25 +1,29 @@
-package com.thProject.myChef.component;
+package com.thProject.myChef.config.auth;
 
-import com.thProject.myChef.entity.UserEntity;
-import com.thProject.myChef.repository.UserRepository;
+import com.thProject.myChef.domain.user.User;
+import com.thProject.myChef.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
 @RequiredArgsConstructor
-public class CustomUserDetailsService implements UserDetailsService {
+@Service
+public class PrincipalDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByUserId(username);
 
-        if (user == null) throw new UsernameNotFoundException("User not exist");
+        User userEntity = userRepository.findByUsername(username);
 
-        return user;
+        if(userEntity == null) {
+            return null;
+        } else {
+            return new PrincipalDetails(userEntity);
+        }
     }
 }

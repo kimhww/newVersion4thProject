@@ -9,17 +9,12 @@ public class WebController {
     @RequestMapping("/")
     public String index1() { return "/index"; }
 
-    @GetMapping("/index")
-    public String index() {
-        return "index";
-    }
-
     @RequestMapping("/join")
     public String join() {
-        return"/join";
+        return "/join";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login")
     public String login() {
         return "/login";
     }
